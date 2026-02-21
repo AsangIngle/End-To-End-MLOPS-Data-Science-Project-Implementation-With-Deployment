@@ -16,8 +16,9 @@ list_of_files=[
     f'src/{project_name}/config/configuration.py',
     f'src/{project_name}/pipeline/__init__.py',
     f'src/{project_name}/entity/__init__.py',
+    f'src/{project_name}/entity/config_entity.py',
     f'src/{project_name}/constants/__init__.py',
-    'confing/config.yaml',
+    'config/config.yaml',
     'params.yaml',
     'schema.yaml',
     'main.py',
@@ -25,7 +26,7 @@ list_of_files=[
     'Dockerfile',
     'research/trials.ipynb',
     'setup.py',
-    'templates/index.html'
+    'templates/index.html',
     'requirements.txt'
 ]
 

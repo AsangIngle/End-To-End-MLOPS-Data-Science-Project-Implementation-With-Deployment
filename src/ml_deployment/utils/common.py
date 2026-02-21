@@ -3,15 +3,15 @@
 import os 
 from box.exceptions import BoxValueError
 import yaml 
-from ml_deployment import logger 
+from src.ml_deployment import logger 
 import json 
 import joblib 
-from ensure import ensure_annotatins 
+from ensure import ensure_annotations 
 from box import ConfigBox
 from pathlib import Path 
 from typing import Any 
 
-@ensure_annotatins
+@ensure_annotations
 def read_yaml(path_to_yaml: Path) ->ConfigBox:
      """read yaml file and returns """
      try:
@@ -25,7 +25,7 @@ def read_yaml(path_to_yaml: Path) ->ConfigBox:
      except Exception as e:
          raise e 
      
-@ensure_annotatins
+@ensure_annotations
 def create_directories(path_to_directories: list, verbose=True):
     """creating list of directories"""
     
@@ -35,7 +35,7 @@ def create_directories(path_to_directories: list, verbose=True):
         if verbose:
             logger.info(f'created directory at : {path}')
             
-@ensure_annotatins
+@ensure_annotations
 def save_json(path: Path,data:dict):
     '''save json data'''
     with open(path,'w') as f:
@@ -44,7 +44,7 @@ def save_json(path: Path,data:dict):
     logger.info(f'json file saved at: {path}')
     
     
-@ensure_annotatins
+@ensure_annotations
 def load_json(path: Path) ->ConfigBox:
     '''loading json files'''
     
@@ -55,14 +55,14 @@ def load_json(path: Path) ->ConfigBox:
     
     return ConfigBox(content)
 
-@ensure_annotatins
+@ensure_annotations
 def save_bin(data: Any, path:Path):
     '''save binary file'''
     
     joblib.dump(value=data,filename=path)
     logger.info(f'binary file saved at: {path}')
     
-@ensure_annotatins
+@ensure_annotations
 def load_bin(path:Path) -> Any:
     '''load binary data'''
     
@@ -70,7 +70,7 @@ def load_bin(path:Path) -> Any:
     logger.info(f'binarry file loaded from :{path}')
     return data 
 
-@ensure_annotatins
+@ensure_annotations
 def get_size(path:Path)->str:
     '''get size in kb'''
     
